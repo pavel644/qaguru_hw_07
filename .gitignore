@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 .idea
-tests/resourses/tmp_files/
+tests/resources/tmp_files/

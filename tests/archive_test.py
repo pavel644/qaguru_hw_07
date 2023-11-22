@@ -7,6 +7,9 @@ sample_files_dir = os.path.join(resources_dir, 'sample_files')
 temp_files_dir = os.path.join(resources_dir, 'tmp_files')
 test_zip_archive_name = 'sample.zip'
 
+if not os.path.exists(temp_files_dir):
+    os.mkdir(temp_files_dir)
+
 with ZipFile(os.path.join(temp_files_dir, test_zip_archive_name), "w") as myzip:
     for file in os.listdir(sample_files_dir):
         myzip.write(os.path.join(sample_files_dir, file), file)
