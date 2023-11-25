@@ -35,6 +35,15 @@ def test_txt_file_exist_in_archive():
     with ZipFile(os.path.join(temp_files_dir, test_zip_archive_name), 'r') as myzip:
         assert 'sample_txt.txt' in myzip.namelist()
 
+def test_txt_file_correct_size():
+    with ZipFile(os.path.join(temp_files_dir, test_zip_archive_name), 'r') as myzip:
+        assert myzip.getinfo('sample_txt.txt').file_size == 2265
+
+
+def test_txt_file_correct_data():
+    with ZipFile(os.path.join(temp_files_dir, test_zip_archive_name), 'r') as myzip:
+        with myzip.open('sample_txt.txt') as txt_file:
+            assert b'Quisque dictum faucibus risus' in txt_file.read()
 
 def test_xls_file_exist_in_archive():
     with ZipFile(os.path.join(temp_files_dir, test_zip_archive_name), 'r') as myzip:
