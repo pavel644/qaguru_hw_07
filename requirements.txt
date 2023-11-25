@@ -1,3 +1,4 @@
 pytest
 openpyxl
 PyPDF2
+xlrd
